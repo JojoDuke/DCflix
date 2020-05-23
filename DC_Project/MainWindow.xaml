@@ -11,12 +11,11 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
         WindowStyle="None"
+        AllowsTransparency="False"
+        Icon="Images/dc3.png"
         Title="DCflix" Height="600" Width="950">
-    <Window.DataContext>
-        <viewModels:MainWindowViewModel/>
-    </Window.DataContext>
 
-    <Grid>
+    <Grid x:Name="gridz" MouseDown="gridz_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="70"/>
@@ -27,7 +26,7 @@
         <Grid Grid.Row="0"
               Background="#21184D">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="50"/>
@@ -35,7 +34,12 @@
             </Grid.ColumnDefinitions>
 
             <!--DC Logo-->
-            <Image Grid.Row="0"/>
+            <Image Grid.Row="0"
+                   Source="Images/dc3.png"
+                   Width="50"
+                   Height="50"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
 
             <!--Minimize-->
             <Button Grid.Column="2" 
@@ -56,13 +60,13 @@
                     Command="{Binding CloseCommand}"/>
         </Grid>
         
-        <!--Main Area-->
+        <!--Main Content Area-->
         <Grid Grid.Row="2"
               Background="#FF323270">
             
         </Grid>
 
-        <!--Search and Options-->
+        <!--Header-->
         <Grid Grid.Row="1"
               Background="#FF323270">
             <Grid.Effect>
@@ -76,14 +80,51 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
+            <!--User Picture and Options-->
             <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
                         VerticalAlignment="Center">
 
-                <Border CornerRadius="100"
+                <!--Notifications/Bell Icon-->
+                <Button Style="{StaticResource IconButton}" Width="30" Margin="0,0,20,0">
+                    <fa:FontAwesome Icon="Bell"
+                                    FontSize="20"/>
+                </Button>
+
+                <!--Settings Icon-->
+                <Button Style="{StaticResource IconButton}" Width="30" Margin="0,0,20,0">
+                    <fa:FontAwesome Icon="Gear"
+                                    FontSize="20"/>
+                </Button>
+
+                <!--UserProfileImage-->
+                <Button Background="Transparent" BorderBrush="Transparent" Margin="0,0,30,0">
+                    <Border CornerRadius="100"
                         Background="Gray"
-                        Height="40"
-                        Width="40"/>
+                        Height="50"
+                        Width="50">
+                    
+                    <Image HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                </Border>
+                </Button>
             </StackPanel>
+            
+            <!--Search Bar-->
+            <Border Padding="70,15">
+                <Border CornerRadius="5"
+                        Background="#FF55558B"
+                        Margin="-60,0,20,0">
+
+                    <TextBox BorderBrush="{x:Null}"
+                             Background="{x:Null}"
+                             Foreground="LightGray"
+                             FontWeight="Bold"
+                             FontSize="16"
+                             VerticalContentAlignment="Center"
+                             FocusVisualStyle="{x:Null}"/>
+                </Border>
+            </Border>
         </Grid>
     </Grid>
 </Window>

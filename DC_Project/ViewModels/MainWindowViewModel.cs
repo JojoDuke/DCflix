@@ -16,6 +16,11 @@ namespace DC_Project.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
+        private Window mWindow;
+        #region Properties
+
+        #endregion
+
         #region Commands
 
         /// <summary>
@@ -31,9 +36,16 @@ namespace DC_Project.ViewModels
         /// <summary>
         /// Main Constructor
         /// </summary>
-        public MainWindowViewModel()
+        public MainWindowViewModel(Window window)
         {
-            
+            mWindow = window;
+
+            // Window Buttons Commands
+            CloseCommand = new RelayCommand(() => mWindow.Close());
+            MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
+            MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
+
+            // On window being moved/dragged
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DC_Project.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace DC_Project
         public MainWindow()
         {
             InitializeComponent();
+
+            this.DataContext = new MainWindowViewModel(this);
+        }
+
+        private void gridz_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }
