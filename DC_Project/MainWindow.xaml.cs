@@ -25,11 +25,13 @@ namespace DC_Project
         {
             InitializeComponent();
 
+            //Links the Databinding Context to the ViewModel
             this.DataContext = new MainWindowViewModel(this);
         }
 
         private void gridz_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            //Makes custom window draggable
             this.DragMove();
         }
     }

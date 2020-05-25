@@ -13,7 +13,17 @@
         WindowStyle="None"
         AllowsTransparency="False"
         Icon="Images/dc3.png"
-        Title="DCflix" Height="600" Width="950">
+        Title="DCflix" Height="700" Width="1150">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DatePicker.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Textbox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
     <Grid x:Name="gridz" MouseDown="gridz_MouseDown">
         <Grid.RowDefinitions>
@@ -63,7 +73,50 @@
         <!--Main Content Area-->
         <Grid Grid.Row="2"
               Background="#FF323270">
-            
+
+            <ScrollViewer FocusVisualStyle="{x:Null}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="350"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <!--Hero Image/Movie-->
+                    <Grid Grid.Row="0">
+                        <Border Padding="0,0,0,0">
+                            <Grid>
+                                <Rectangle>
+                                    <Rectangle.Fill>
+                                        <ImageBrush ImageSource="Images/IWimg1.jpg"
+                                                    Stretch="UniformToFill"/>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+
+                                <!--Overlay-->
+                                <Rectangle Fill="Black"
+                                           Opacity="0.2"/>
+
+                                <!--Movie Info-->
+                                <StackPanel TextBlock.Foreground="#FFFFFF"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Bottom"
+                                            Margin="20,0,0,20">
+                                    <!--Text-->
+                                    <TextBlock Text="Name" FontSize="40" FontWeight="Bold"/>
+                                    <TextBlock Text="Description" FontSize="25" FontWeight="DemiBold"/>
+                                    <TextBlock Text="Cast" FontSize="20"/>
+
+                                    <!--Watch Buttons-->
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Watch Now" Style="{StaticResource NormalButton}" Margin="0,0,20,0"/>
+                                        <Button Content="+ Add to Watchlist" Style="{StaticResource OutlinedNormalButton}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
         </Grid>
 
         <!--Header-->
@@ -86,27 +139,27 @@
                         VerticalAlignment="Center">
 
                 <!--Notifications/Bell Icon-->
-                <Button Style="{StaticResource IconButton}" Width="30" Margin="0,0,20,0">
+                <Button Style="{StaticResource IconButton}" Width="30" Margin="0,0,30,0">
                     <fa:FontAwesome Icon="Bell"
                                     FontSize="20"/>
                 </Button>
 
                 <!--Settings Icon-->
-                <Button Style="{StaticResource IconButton}" Width="30" Margin="0,0,20,0">
+                <Button Style="{StaticResource IconButton}" Width="30" Margin="0,0,30,0">
                     <fa:FontAwesome Icon="Gear"
                                     FontSize="20"/>
                 </Button>
 
                 <!--UserProfileImage-->
-                <Button Background="Transparent" BorderBrush="Transparent" Margin="0,0,30,0">
-                    <Border CornerRadius="100"
-                        Background="Gray"
-                        Height="50"
-                        Width="50">
-                    
-                    <Image HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-                </Border>
+                <Button Style="{StaticResource IconButton}" Margin="0,0,50,0">
+                    <Ellipse Height="50"
+                             Width="50">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Images/IWimg1.jpg"
+                                        RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                        Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
                 </Button>
             </StackPanel>
             
@@ -116,13 +169,18 @@
                         Background="#FF55558B"
                         Margin="-60,0,20,0">
 
-                    <TextBox BorderBrush="{x:Null}"
+                    <TextBox x:Name="SearchTextBox"
+                             BorderBrush="{x:Null}"
                              Background="{x:Null}"
+                             FocusVisualStyle="{x:Null}"
+                             Padding="10,0,0,0"
+                             materialDesign:HintAssist.Hint="Search for movie here"
+                             materialDesign:HintAssist.HintOpacity="0.4"
                              Foreground="LightGray"
                              FontWeight="Bold"
                              FontSize="16"
                              VerticalContentAlignment="Center"
-                             FocusVisualStyle="{x:Null}"/>
+                             Style="{StaticResource MaterialDesignTextBox}"/>
                 </Border>
             </Border>
         </Grid>

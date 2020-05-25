@@ -28,11 +28,18 @@ namespace DC_Project.ViewModels
         /// </summary>
         public ICommand CloseCommand { get; set; }
 
+        /// <summary>
+        /// The command to minimize the window
+        /// </summary>
         public ICommand MinimizeCommand { get; set; }
 
+        /// <summary>
+        /// The command to maximize the window
+        /// </summary>
         public ICommand MaximizeCommand { get; set; }
         #endregion
 
+        #region Constructor
         /// <summary>
         /// Main Constructor
         /// </summary>
@@ -47,5 +54,6 @@ namespace DC_Project.ViewModels
 
             // On window being moved/dragged
         }
+        #endregion
     }
 }

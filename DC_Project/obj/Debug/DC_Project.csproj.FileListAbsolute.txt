@@ -19,7 +19,6 @@ C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\MaterialDesignCol
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\Newtonsoft.Json.xml
-C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\DC_Project.csproj.CopyComplete
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\System.Net.Http.Formatting.xml
@@ -27,3 +26,4 @@ C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\FontAwesome.WPF.d
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\FontAwesome.WPF.xml
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Styles\Buttons.baml
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\App.baml
+C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Styles\TextBoxes.baml
