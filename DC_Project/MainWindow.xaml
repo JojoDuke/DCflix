@@ -72,7 +72,7 @@
         
         <!--Main Content Area-->
         <Grid Grid.Row="2"
-              Background="#FF323270">
+              Background="#323270">
 
             <ScrollViewer FocusVisualStyle="{x:Null}">
                 <Grid>
@@ -107,8 +107,16 @@
                                     <TextBlock Text="Cast" FontSize="20"/>
 
                                     <!--Watch Buttons-->
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Content="Watch Now" Style="{StaticResource NormalButton}" Margin="0,0,20,0"/>
+                                    <StackPanel Orientation="Horizontal"
+                                                Margin="0,20,0,0">
+                                        <Button Content="Watch Now" Style="{StaticResource NormalButton}" Margin="0,0,20,0">
+                                            <Button.Effect>
+                                                <DropShadowEffect Opacity="0.4"
+                                                                  Color="#FF0021F1"
+                                                                  BlurRadius="10"
+                                                                  Direction="300"/>
+                                            </Button.Effect>
+                                        </Button>
                                         <Button Content="+ Add to Watchlist" Style="{StaticResource OutlinedNormalButton}"/>
                                     </StackPanel>
                                 </StackPanel>
