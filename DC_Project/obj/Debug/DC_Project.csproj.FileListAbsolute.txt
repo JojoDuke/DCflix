@@ -27,3 +27,6 @@ C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\FontAwesome.WPF.x
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Styles\Buttons.baml
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\App.baml
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Styles\TextBoxes.baml
+C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\TMDbLib.dll
+C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\System.Diagnostics.DiagnosticSource.xml

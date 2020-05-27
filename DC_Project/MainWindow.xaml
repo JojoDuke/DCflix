@@ -87,8 +87,9 @@
                             <Grid>
                                 <Rectangle>
                                     <Rectangle.Fill>
-                                        <ImageBrush ImageSource="Images/IWimg1.jpg"
-                                                    Stretch="UniformToFill"/>
+                                        <ImageBrush ImageSource="{Binding MovieImage}"
+                                                    Stretch="UniformToFill"
+                                                    AlignmentY="Center"/>
                                     </Rectangle.Fill>
                                 </Rectangle>
 
@@ -102,27 +103,37 @@
                                             VerticalAlignment="Bottom"
                                             Margin="20,0,0,20">
                                     <!--Text-->
-                                    <TextBlock Text="Name" FontSize="40" FontWeight="Bold"/>
-                                    <TextBlock Text="Description" FontSize="25" FontWeight="DemiBold"/>
-                                    <TextBlock Text="Cast" FontSize="20"/>
+                                    <TextBlock Text="{Binding MovieName}" FontSize="40" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding MovieDescription}" FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Width="700" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="{Binding MovieCast}" FontSize="14"/>
 
                                     <!--Watch Buttons-->
                                     <StackPanel Orientation="Horizontal"
                                                 Margin="0,20,0,0">
-                                        <Button Content="Watch Now" Style="{StaticResource NormalButton}" Margin="0,0,20,0">
+                                        
+                                        <!--Watch Now Button-->
+                                        <Button Content="Watch Now" Style="{StaticResource NormalButton}" Margin="0,0,40,0">
                                             <Button.Effect>
-                                                <DropShadowEffect Opacity="0.4"
+                                                <DropShadowEffect Opacity="0.6"
                                                                   Color="#FF0021F1"
                                                                   BlurRadius="10"
                                                                   Direction="300"/>
                                             </Button.Effect>
                                         </Button>
+                                        
+                                        <!--Add to Watchlist Button-->
                                         <Button Content="+ Add to Watchlist" Style="{StaticResource OutlinedNormalButton}"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Grid>
                         </Border>
                     </Grid>
+
+                    <!--Movies Colleci-->
+                    <StackPanel Grid.Row="1"
+                                Background="Red">
+                        
+                    </StackPanel>
                 </Grid>
             </ScrollViewer>
         </Grid>
