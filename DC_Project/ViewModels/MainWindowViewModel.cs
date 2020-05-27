@@ -68,23 +68,26 @@ namespace DC_Project.ViewModels
             CloseCommand = new RelayCommand(() => mWindow.Close());
             MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
             MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
+            tmdbFunction();
+        }
 
+        public async void tmdbFunction()
+        {
             //This is The Movie Database API Client
             TMDbClient client = new TMDbClient("c807e25e9945dcb331636165896edb32");
-            Movie movie = client.GetMovieAsync("141052", MovieMethods.Credits | MovieMethods.Images).Result;
+            Movie movie = client.GetMovieAsync("tt2975590", MovieMethods.Credits | MovieMethods.Images).Result;
 
             MovieName = movie.Title;
             MovieDescription = movie.Overview;
             foreach (ImageData image in movie.Images.Backdrops)
             {
-                MovieImage = "https://image.tmdb.org/t/p/original"+image.FilePath;
+                MovieImage = "https://image.tmdb.org/t/p/original" + image.FilePath;
             }
 
             foreach (Cast cast in movie.Credits.Cast)
             {
                 MovieCast = cast.Name;
             }
-
         }
         #endregion
     }

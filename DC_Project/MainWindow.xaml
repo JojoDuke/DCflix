@@ -129,10 +129,13 @@
                         </Border>
                     </Grid>
 
-                    <!--Movies Colleci-->
+                    <!--Movies Collection-->
                     <StackPanel Grid.Row="1"
                                 Background="Red">
                         
+                        <Border Background="Black"
+                                Width="200"
+                                Height="500"></Border>
                     </StackPanel>
                 </Grid>
             </ScrollViewer>
