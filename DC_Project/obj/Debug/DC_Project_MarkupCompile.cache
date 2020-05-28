@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\App.xaml
-337676892
+4-1718961101
 
-8-1213782442
+101992044523
 125993913509
-MainWindow.xaml;Styles\Buttons.xaml;Styles\TextBoxes.xaml;
+Controls\MoviesListItemContorl.xaml;MainWindow.xaml;Styles\Buttons.xaml;Styles\ScrollBars.xaml;
 
-True
+False
 

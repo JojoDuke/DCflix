@@ -5,8 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DC_Project.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             Height="Auto" Width="Auto">
+
     <Grid>
-            
+        <ListView ItemsSource="{Binding Try}"
+                  Background="Transparent"
+                  FocusVisualStyle="{x:Null}"
+                  BorderBrush="Transparent">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" FocusVisualStyle="{x:Null}"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid FocusVisualStyle="{x:Null}">
+
+                        <Border>
+                            <Rectangle RadiusX="10" RadiusY="10" Height="150" Width="250" FocusVisualStyle="{x:Null}">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="https://waterloomdp.files.wordpress.com/2016/06/berekuso.jpg?w=1000"
+                                            Stretch="UniformToFill"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

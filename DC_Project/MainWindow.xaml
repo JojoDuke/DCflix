@@ -7,6 +7,7 @@
         xmlns:viewModels="clr-namespace:DC_Project.ViewModels"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:controls="clr-namespace:DC_Project.Controls"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
@@ -22,6 +23,90 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DatePicker.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Textbox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="ScrollThumb" TargetType="{x:Type Thumb}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Grid x:Name="Grid1">
+                                <Rectangle Fill="Transparent" Height="Auto" Width="Auto" HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"/>
+                                <Border x:Name="Rectangle1" CornerRadius="10" Width="Auto" Height="Auto" 
+                                        Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" 
+                                        VerticalAlignment="Stretch"/>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Tag" Value="Horizontal">
+                                    <Setter TargetName="Rectangle1" Property="Width" Value="Auto"/>
+                                    <Setter TargetName="Rectangle1" Property="Height" Value="7"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--SCROLLBARS-->
+            <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+                <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+                <Setter Property="Foreground" Value="Red"/>
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Width" Value="10"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                            <Grid x:Name="GridRoot" Width="12" Background="{x:Null}">
+                                <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="False">
+                                    <Track.Thumb>
+                                        <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" 
+                                               Style="{DynamicResource ScrollThumbs}"/>
+                                    </Track.Thumb>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="False"/>
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="False"/>
+                                    </Track.DecreaseRepeatButton>
+                                </Track>
+                            </Grid>
+
+                            <!--Triggers-->
+                            <ControlTemplate.Triggers>
+                                <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+                                    <Setter Value="{DynamicResource ButtonSelectBrush}" 
+                                            TargetName="Thumb" Property="Background"/>
+                                </Trigger>
+                                <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
+                                    <Setter Value="{DynamicResource DarkBrush}" TargetName="Thumb" Property="Background"/>
+                                </Trigger>
+
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                                <Trigger Property="Orientation" Value="Horizontal">
+                                    <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <RotateTransform Angle="-90"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <RotateTransform Angle="-90"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Width" Value="Auto"/>
+                                    <Setter Property="Height" Value="12"/>
+                                    <Setter TargetName="Thumb" Property="Tag" Value="Horizontal"/>
+                                    <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand"/>
+                                    <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -88,8 +173,7 @@
                                 <Rectangle>
                                     <Rectangle.Fill>
                                         <ImageBrush ImageSource="{Binding MovieImage}"
-                                                    Stretch="UniformToFill"
-                                                    AlignmentY="Center"/>
+                                                    Stretch="UniformToFill"/>
                                     </Rectangle.Fill>
                                 </Rectangle>
 
@@ -105,9 +189,15 @@
                                     <!--Text-->
                                     <TextBlock Text="{Binding MovieName}" FontSize="40" FontWeight="Bold"/>
                                     <TextBlock Text="{Binding MovieDescription}" FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Width="700" HorizontalAlignment="Left"/>
-                                    <TextBlock Text="{Binding MovieCast}" FontSize="14"/>
+                                    <ItemsControl ItemsSource="{Binding MovieCast}" TextBlock.FontSize="14">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal"></StackPanel>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                    </ItemsControl>
 
-                                    <!--Watch Buttons-->
+                                        <!--Watch Buttons-->
                                     <StackPanel Orientation="Horizontal"
                                                 Margin="0,20,0,0">
                                         
@@ -130,12 +220,17 @@
                     </Grid>
 
                     <!--Movies Collection-->
-                    <StackPanel Grid.Row="1"
-                                Background="Red">
-                        
-                        <Border Background="Black"
-                                Width="200"
-                                Height="500"></Border>
+                    <StackPanel Grid.Row="1">
+
+                        <TextBlock Text="Recently Added" Foreground="#FFFFFF" FontWeight="SemiBold" FontSize="25" Margin="20,30,0,15"/>
+                        <controls:MoviesListItemContorl Margin="0,0,0,0"/>
+
+                        <TextBlock Text="Recently Added" Foreground="#FFFFFF" FontWeight="SemiBold" FontSize="25" Margin="20,30,0,15"/>
+                        <controls:MoviesListItemContorl Margin="0,-10,0,0"/>
+
+                        <TextBlock Text="Recently Added" Foreground="#FFFFFF" FontWeight="SemiBold" FontSize="25" Margin="20,30,0,15"/>
+                        <controls:MoviesListItemContorl Margin="0,-10,0,0"/>
+
                     </StackPanel>
                 </Grid>
             </ScrollViewer>

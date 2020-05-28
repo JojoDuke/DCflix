@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using TMDbLib.Client;
 using TMDbLib.Objects.Movies;
 using TMDbLib.Objects.General;
+using DC_Project.Models;
 
 namespace DC_Project.ViewModels
 {
@@ -32,9 +33,13 @@ namespace DC_Project.ViewModels
 
         public string MovieDescription { get; set; }
 
-        public string MovieCast { get; set; }
+        //public string MovieCast { get; set; }
 
         public string MovieImage { get; set; }
+
+        public ObservableCollection<MoviesModel> Try { get; set; } = new ObservableCollection<MoviesModel>();
+
+        public List<Cast> MovieCast { get; set; }
 
         #endregion
 
@@ -64,11 +69,17 @@ namespace DC_Project.ViewModels
         {
             mWindow = window;
 
+            tmdbFunction();
+
             // Window Buttons Commands
             CloseCommand = new RelayCommand(() => mWindow.Close());
             MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
             MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
-            tmdbFunction();
+
+            Try.Add(new MoviesModel { Name = "Dexter" });
+            Try.Add(new MoviesModel { Name = "Dexter" });
+            Try.Add(new MoviesModel { Name = "Dexter" });
+            Try.Add(new MoviesModel { Name = "Dexter" });
         }
 
         public async void tmdbFunction()
@@ -79,15 +90,15 @@ namespace DC_Project.ViewModels
 
             MovieName = movie.Title;
             MovieDescription = movie.Overview;
-            foreach (ImageData image in movie.Images.Backdrops)
+            await Task.Run(() =>
             {
-                MovieImage = "https://image.tmdb.org/t/p/original" + image.FilePath;
-            }
+                foreach (ImageData image in movie.Images.Backdrops)
+                {
+                    MovieImage = "https://image.tmdb.org/t/p/original" + image.FilePath;
+                }
+            });
 
-            foreach (Cast cast in movie.Credits.Cast)
-            {
-                MovieCast = cast.Name;
-            }
+            MovieCast = movie.Credits.Cast;
         }
         #endregion
     }

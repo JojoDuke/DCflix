@@ -26,7 +26,10 @@ C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\FontAwesome.WPF.d
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\FontAwesome.WPF.xml
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Styles\Buttons.baml
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\App.baml
-C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Styles\TextBoxes.baml
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\System.Diagnostics.DiagnosticSource.dll
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\TMDbLib.dll
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Controls\MoviesListItemContorl.g.cs
+C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Controls\MoviesListItemContorl.baml
+C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Styles\ScrollBars.baml

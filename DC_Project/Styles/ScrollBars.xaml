@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DC_Project.Styles">
+
+    <Style x:Key="ScrollThumb" TargetType="{x:Type Thumb}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid x:Name="Grid1">
+                        <Rectangle Fill="Transparent" Height="Auto" Width="Auto" HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"/>
+                        <Border x:Name="Rectangle1" CornerRadius="10"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Tag" Value="Horizontal">
+                            <Setter TargetName="Rectangle1" Property="Width" Value="Auto"/>
+                            <Setter TargetName="Rectangle1" Property="Height" Value="7"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--SCROLLBARS-->
+    <Style x:Key="CustomScrollBar" TargetType="{x:Type ScrollBar}">
+
+    </Style>
+</ResourceDictionary>
