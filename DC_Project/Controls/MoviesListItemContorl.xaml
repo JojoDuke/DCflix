@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:behaviours="clr-namespace:DC_Project.Behaviours"
              xmlns:local="clr-namespace:DC_Project.Controls"
              mc:Ignorable="d" 
              Height="Auto" Width="Auto">
@@ -21,17 +23,25 @@
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid FocusVisualStyle="{x:Null}">
-
-                        <Border>
-                            <Rectangle RadiusX="10" RadiusY="10" Height="150" Width="250" FocusVisualStyle="{x:Null}">
+                    <StackPanel FocusVisualStyle="{x:Null}">
+                        <Border Padding="10,0">
+                            <Rectangle RadiusX="10" RadiusY="10" Height="150" Width="300" FocusVisualStyle="{x:Null}">
                                 <Rectangle.Fill>
-                                    <ImageBrush ImageSource="https://waterloomdp.files.wordpress.com/2016/06/berekuso.jpg?w=1000"
+                                    <ImageBrush ImageSource="{Binding MovieImage}"
                                                 Stretch="UniformToFill"/>
                                 </Rectangle.Fill>
                             </Rectangle>
                         </Border>
-                    </Grid>
+
+                        <TextBlock Text="{Binding MovieName}"
+                                   FontWeight="SemiBold"
+                                   FontSize="18"
+                                   Foreground="#FFFFFF"
+                                   Margin="13,10,0,0"
+                                   TextAlignment="Left"
+                                   HorizontalAlignment="Left"
+                                   TextWrapping="Wrap"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

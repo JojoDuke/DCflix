@@ -183,7 +183,8 @@
                                 <Rectangle>
                                     <Rectangle.Fill>
                                         <ImageBrush ImageSource="{Binding HeroImage}"
-                                                    Stretch="UniformToFill"/>
+                                                    Stretch="UniformToFill"
+                                                    AlignmentY="Center"/>
                                     </Rectangle.Fill>
                                 </Rectangle>
 

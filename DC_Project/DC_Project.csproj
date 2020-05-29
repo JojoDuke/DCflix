@@ -113,6 +113,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviours\IgnoreMouseWheelBehaviour.cs" />
     <Compile Include="Controls\MoviesListItemContorl.xaml.cs">
       <DependentUpon>MoviesListItemContorl.xaml</DependentUpon>
     </Compile>
@@ -173,7 +174,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="APIs\" />
     <Folder Include="Fonts\" />
     <Folder Include="Helpers\" />
     <Folder Include="Views\" />

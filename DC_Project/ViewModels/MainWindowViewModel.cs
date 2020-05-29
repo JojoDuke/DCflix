@@ -37,6 +37,8 @@ namespace DC_Project.ViewModels
 
         public ObservableCollection<MoviesModel> MovieItems { get; set; } = new ObservableCollection<MoviesModel>();
 
+        public MoviesModel Huh { get; set; }
+
         public List<Cast> HeroCast { get; set; }
 
         #endregion
@@ -74,10 +76,11 @@ namespace DC_Project.ViewModels
             MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
             MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
 
-            MovieItems.Add(new MoviesModel { Name = "Dexter" });
-            MovieItems.Add(new MoviesModel { Name = "Dexter" });
-            MovieItems.Add(new MoviesModel { Name = "Dexter" });
-            MovieItems.Add(new MoviesModel { Name = "Dexter" });
+            MovieItems.Add(new MoviesModel("tt4154796"));
+            MovieItems.Add(new MoviesModel("tt1477834"));
+            MovieItems.Add(new MoviesModel("tt10985510"));
+            MovieItems.Add(new MoviesModel("tt0448115"));
+            MovieItems.Add(new MoviesModel("tt2494376"));
         }
         #endregion
 
@@ -97,7 +100,7 @@ namespace DC_Project.ViewModels
 
             await Task.Run(() =>
             {
-                foreach (ImageData image in heroMovie.Images.Backdrops)
+                foreach (ImageData image in heroMovie.Images.Posters)
                 {
                     HeroImage = "https://image.tmdb.org/t/p/original" + image.FilePath; //This gets the movies image
                 }
@@ -107,10 +110,6 @@ namespace DC_Project.ViewModels
             HeroCast = heroMovie.Credits.Cast;
         }
 
-        public void GetMovies()
-        {
-
-        }
         #endregion
 
     }
