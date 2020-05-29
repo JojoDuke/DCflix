@@ -29,17 +29,15 @@ namespace DC_Project.ViewModels
 
         #region Properties
 
-        public string MovieName { get; set; }
+        public string HeroName { get; set; }
 
-        public string MovieDescription { get; set; }
+        public string HeroDescription { get; set; }
 
-        //public string MovieCast { get; set; }
+        public string HeroImage { get; set; }
 
-        public string MovieImage { get; set; }
+        public ObservableCollection<MoviesModel> MovieItems { get; set; } = new ObservableCollection<MoviesModel>();
 
-        public ObservableCollection<MoviesModel> Try { get; set; } = new ObservableCollection<MoviesModel>();
-
-        public List<Cast> MovieCast { get; set; }
+        public List<Cast> HeroCast { get; set; }
 
         #endregion
 
@@ -76,30 +74,44 @@ namespace DC_Project.ViewModels
             MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
             MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
 
-            Try.Add(new MoviesModel { Name = "Dexter" });
-            Try.Add(new MoviesModel { Name = "Dexter" });
-            Try.Add(new MoviesModel { Name = "Dexter" });
-            Try.Add(new MoviesModel { Name = "Dexter" });
+            MovieItems.Add(new MoviesModel { Name = "Dexter" });
+            MovieItems.Add(new MoviesModel { Name = "Dexter" });
+            MovieItems.Add(new MoviesModel { Name = "Dexter" });
+            MovieItems.Add(new MoviesModel { Name = "Dexter" });
         }
+        #endregion
+
+        #region Methods
 
         public async void tmdbFunction()
         {
             //This is The Movie Database API Client
             TMDbClient client = new TMDbClient("c807e25e9945dcb331636165896edb32");
-            Movie movie = client.GetMovieAsync("tt2975590", MovieMethods.Credits | MovieMethods.Images).Result;
+            Movie heroMovie = client.GetMovieAsync("tt2975590", MovieMethods.Credits | MovieMethods.Images).Result;
 
-            MovieName = movie.Title;
-            MovieDescription = movie.Overview;
+            //The name/titile of the movie
+            HeroName = heroMovie.Title;
+
+            //The movie's description
+            HeroDescription = heroMovie.Overview;
+
             await Task.Run(() =>
             {
-                foreach (ImageData image in movie.Images.Backdrops)
+                foreach (ImageData image in heroMovie.Images.Backdrops)
                 {
-                    MovieImage = "https://image.tmdb.org/t/p/original" + image.FilePath;
+                    HeroImage = "https://image.tmdb.org/t/p/original" + image.FilePath; //This gets the movies image
                 }
             });
 
-            MovieCast = movie.Credits.Cast;
+            //Names of each cast member
+            HeroCast = heroMovie.Credits.Cast;
+        }
+
+        public void GetMovies()
+        {
+
         }
         #endregion
+
     }
 }

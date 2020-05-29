@@ -8,7 +8,7 @@
              Height="Auto" Width="Auto">
 
     <Grid>
-        <ListView ItemsSource="{Binding Try}"
+        <ListView ItemsSource="{Binding MovieItems}"
                   Background="Transparent"
                   FocusVisualStyle="{x:Null}"
                   BorderBrush="Transparent">
@@ -27,7 +27,7 @@
                             <Rectangle RadiusX="10" RadiusY="10" Height="150" Width="250" FocusVisualStyle="{x:Null}">
                                 <Rectangle.Fill>
                                     <ImageBrush ImageSource="https://waterloomdp.files.wordpress.com/2016/06/berekuso.jpg?w=1000"
-                                            Stretch="UniformToFill"/>
+                                                Stretch="UniformToFill"/>
                                 </Rectangle.Fill>
                             </Rectangle>
                         </Border>

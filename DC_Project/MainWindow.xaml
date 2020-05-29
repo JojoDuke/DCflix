@@ -24,16 +24,25 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Textbox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <Style x:Key="ScrollThumb" TargetType="{x:Type Thumb}">
+            <Style x:Key="{x:Type Thumb}" TargetType="{x:Type Thumb}">
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate>
-                            <Grid x:Name="Grid1">
-                                <Rectangle Fill="Transparent" Height="Auto" Width="Auto" HorizontalAlignment="Stretch"
-                                           VerticalAlignment="Stretch"/>
-                                <Border x:Name="Rectangle1" CornerRadius="10" Width="Auto" Height="Auto" 
-                                        Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" 
-                                        VerticalAlignment="Stretch"/>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Grid x:Name="Grid">
+                                <Rectangle HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch"
+                                           Width="Auto"
+                                           Height="Auto"
+                                           Fill="Transparent"/>
+                                
+                                <Border x:Name="Rectangle1" 
+                                        CornerRadius="5" 
+                                        Width="Auto" 
+                                        Height="Auto" 
+                                        Background="{TemplateBinding Background}" 
+                                        HorizontalAlignment="Stretch" 
+                                        VerticalAlignment="Stretch"
+                                        Margin="0,10,0,10"/>
                             </Grid>
 
                             <ControlTemplate.Triggers>
@@ -50,16 +59,17 @@
             <!--SCROLLBARS-->
             <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
                 <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-                <Setter Property="Foreground" Value="Red"/>
-                <Setter Property="Background" Value="Black"/>
-                <Setter Property="Width" Value="10"/>
+                <Setter Property="Foreground" Value="#FF62589C"/>
+                <Setter Property="Background" Value="{x:Null}"/>
+                <Setter Property="Width" Value="15"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ScrollBar}">
-                            <Grid x:Name="GridRoot" Width="12" Background="{x:Null}">
+                            <Grid x:Name="GridRoot" Width="12" Background="{TemplateBinding Background}">
                                 <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="False">
                                     <Track.Thumb>
-                                        <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" 
+                                        <Thumb x:Name="Thumb" 
+                                               Background="{TemplateBinding Foreground}"
                                                Style="{DynamicResource ScrollThumbs}"/>
                                     </Track.Thumb>
                                     <Track.IncreaseRepeatButton>
@@ -73,8 +83,8 @@
 
                             <!--Triggers-->
                             <ControlTemplate.Triggers>
-                                <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
-                                    <Setter Value="{DynamicResource ButtonSelectBrush}" 
+                                <Trigger SourceName="Thumb" Property="IsMouseOver" Value="True">
+                                    <Setter Value="#FF7979AC" 
                                             TargetName="Thumb" Property="Background"/>
                                 </Trigger>
                                 <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
@@ -172,7 +182,7 @@
                             <Grid>
                                 <Rectangle>
                                     <Rectangle.Fill>
-                                        <ImageBrush ImageSource="{Binding MovieImage}"
+                                        <ImageBrush ImageSource="{Binding HeroImage}"
                                                     Stretch="UniformToFill"/>
                                     </Rectangle.Fill>
                                 </Rectangle>
@@ -187,14 +197,20 @@
                                             VerticalAlignment="Bottom"
                                             Margin="20,0,0,20">
                                     <!--Text-->
-                                    <TextBlock Text="{Binding MovieName}" FontSize="40" FontWeight="Bold"/>
-                                    <TextBlock Text="{Binding MovieDescription}" FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Width="700" HorizontalAlignment="Left"/>
-                                    <ItemsControl ItemsSource="{Binding MovieCast}" TextBlock.FontSize="14">
+                                    <TextBlock Text="{Binding HeroName}" FontSize="40" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding HeroDescription}" FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Width="700" HorizontalAlignment="Left"/>
+                                    <ItemsControl ItemsSource="{Binding HeroCast}" TextBlock.FontSize="14">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <StackPanel Orientation="Horizontal"></StackPanel>
                                             </ItemsPanelTemplate>
                                         </ItemsControl.ItemsPanel>
+
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Name, StringFormat=' {0} '}"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
                                     </ItemsControl>
 
                                         <!--Watch Buttons-->
@@ -212,7 +228,8 @@
                                         </Button>
                                         
                                         <!--Add to Watchlist Button-->
-                                        <Button Content="+ Add to Watchlist" Style="{StaticResource OutlinedNormalButton}"/>
+                                        <Button Content="+ Add to Watchlist" 
+                                                Style="{StaticResource OutlinedNormalButton}"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Grid>
@@ -225,10 +242,10 @@
                         <TextBlock Text="Recently Added" Foreground="#FFFFFF" FontWeight="SemiBold" FontSize="25" Margin="20,30,0,15"/>
                         <controls:MoviesListItemContorl Margin="0,0,0,0"/>
 
-                        <TextBlock Text="Recently Added" Foreground="#FFFFFF" FontWeight="SemiBold" FontSize="25" Margin="20,30,0,15"/>
+                        <TextBlock Text="Most Watched" Foreground="#FFFFFF" FontWeight="SemiBold" FontSize="25" Margin="20,30,0,15"/>
                         <controls:MoviesListItemContorl Margin="0,-10,0,0"/>
 
-                        <TextBlock Text="Recently Added" Foreground="#FFFFFF" FontWeight="SemiBold" FontSize="25" Margin="20,30,0,15"/>
+                        <TextBlock Text="Batman" Foreground="#FFFFFF" FontWeight="SemiBold" FontSize="25" Margin="20,30,0,15"/>
                         <controls:MoviesListItemContorl Margin="0,-10,0,0"/>
 
                     </StackPanel>

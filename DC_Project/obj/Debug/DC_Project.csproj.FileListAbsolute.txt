@@ -1,7 +1,6 @@
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\DC_Project.exe.config
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\DC_Project.exe
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\bin\Debug\DC_Project.pdb
-C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\DC_Project.csprojAssemblyReference.cache
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\MainWindow.g.cs
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\App.g.cs
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\DC_Project_MarkupCompile.cache
@@ -33,3 +32,4 @@ C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Controls\MoviesLi
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Controls\MoviesListItemContorl.baml
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\Styles\ScrollBars.baml
+C:\Users\PAVILION\source\repos\DC_Project\DC_Project\obj\Debug\DC_Project.csprojAssemblyReference.cache
