@@ -7,4 +7,4 @@ This is a quick little project that I wanted to try out. I had never really used
 * C# Behaviours
 
 ## Preview
-![Main Window Preview](https://ibb.co/RHYdmMx.gif)
+![Main Window Preview](https://tenor.com/view/gif-19313523.gif)
