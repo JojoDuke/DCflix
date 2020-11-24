@@ -6,7 +6,5 @@ This is a quick little project that I wanted to try out. I had never really used
 * TMdb API
 * C# Behaviours
 
-## Screenshots
-
-
 ## Preview
+![Main Window Preview](https://ibb.co/RHYdmMx.gif)
